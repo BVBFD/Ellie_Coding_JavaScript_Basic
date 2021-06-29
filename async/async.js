@@ -33,7 +33,8 @@ function delay(ms) {
 async function getApple() {
     await delay(1000);
     // throw 'error';
-    // delay가 끝날때까지 기다려 프로미스는 기다린다.
+    // delay가 끝날때까지 기다려 프로미스는 기다린다. 
+    // 여기서 실행대기 위로 올라가서 프로미스 함수 fulfilled 되면 밑으로 와서 await 구문 실행.
     return '🍎';
 }
 
@@ -70,6 +71,19 @@ async function pickFruits() {
     return `${apple} + ${banana}`;
 } 
 
+// 함수를 위로 가서 호출하고, 함수 본문이 실행되는 도중에 
+// await 구문 (*)로 표시한 줄에서 실행이 
+// 잠시 '중단’되었다가 프라미스(위에서)가 처리되면 실행이 재개됩니다. 
+// 이때 프라미스 객체의 result 값이 변수 result에 할당됩니다. 
+// 따라서 위 예시를 실행하면 1초 뒤에 '완료!'가 출력됩니다.
+// await('기다리다’라는 뜻을 가진 영단어 – 옮긴이)는 말 그대로 프라미스가 처리될 때까지 
+// 함수 실행을 기다리게 만듭니다. 프라미스가 처리되면 그 결과와 함께 실행이 재개되죠.
+// 프라미스가 처리되길 기다리는 동안엔 엔진이 다른 일(다른 스크립트를 실행, 이벤트 처리 등)을 
+// 할 수 있기 때문에, CPU 리소스가 낭비되지 않습니다.
+// await는 promise.then보다 좀 더 세련되게 
+// 프라미스의 result 값을 얻을 수 있도록 해주는 문법입니다. 
+// promise.then보다 가독성 좋고 쓰기도 쉽습니다.
+
 pickFruits().then(console.log);
 
 // 3. useful Promise APIs
@@ -84,4 +98,7 @@ function pickOnlyOne() {
 }
 
 pickOnlyOne().then(console.log);
+
+// 프로미스를 이행했을 때 할 일은 then() 호출로 정의하고,
+// 거부됐을 때 할 일은 catch() 호출로 정의
 
