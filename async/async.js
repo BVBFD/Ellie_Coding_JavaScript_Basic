@@ -69,6 +69,11 @@ async function pickFruits() {
     const apple = await applePromise;
     const banana = await bananaPromise;
     return `${apple} + ${banana}`;
+    // 여기서 await 일단 이 함수 내에서 일시정지시키고 기다린다.
+    // 그리고 프로미스 함수 위로 올라가서 프로미스 함수 리턴 fullfulfilled 받고
+    // 다시 내려와서 실행.
+    // await를 안 쓰면 여기서 기다리지 않고 위로 안가서 프로미스 함수 
+    // 리턴 fullfulfilled 안 받기 때문에 프로미스 객체가 리턴되는 거임.
 } 
 
 // 함수를 위로 가서 호출하고, 함수 본문이 실행되는 도중에 
@@ -101,4 +106,3 @@ pickOnlyOne().then(console.log);
 
 // 프로미스를 이행했을 때 할 일은 then() 호출로 정의하고,
 // 거부됐을 때 할 일은 catch() 호출로 정의
-
