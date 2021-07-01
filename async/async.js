@@ -1,3 +1,5 @@
+'use strict';
+
 // 1. async
 async function fetchUser() {
     // do network request in 10 secs....
