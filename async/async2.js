@@ -49,3 +49,5 @@ pickFruits().then(console.log);
 console.log('실험 중');
 
 // https://kkangdda.tistory.com/77?category=830981 참고할 것.
+// async 함수는 항상 return 값이 프로미스 값이다.
+// await 프로미스 함수 이름 하면 return 값이 나온다.
