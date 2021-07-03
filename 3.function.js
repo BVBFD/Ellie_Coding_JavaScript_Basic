@@ -122,6 +122,12 @@ const simpleMultiply = (a, b) => {
     console.log('IIFE');
 })();
 
+// function hello(){
+//     console.log('IIFE');
+// }
+// hello();
+// 위에꺼랑 똑같음!!!
+
 // Fun quiz time
 // function calculate(command, a, b)
 // command: add, substract, divide, multiply, remainder
