@@ -71,13 +71,20 @@ let x;
 console.log(`value : ${x}, type: ${typeof x}`);
 
 // 10. symbol, creat unique identifiers for objects
+// 고유한 식별자가 필요할 때 쓰는 아이...
+// 동일한 string으로 작성했어도 다른 symbol로 주어지기 때문에 같지 않음.
 const symbol1 = Symbol('id');
 const symbol2 = Symbol('id');
 console.log(symbol1 === symbol2);
+// 같은 value 인자를 주고 생성하더라도 값은 같지 않음.
+// symbol()로부터 반환되는 값은 항상 고유하다.
 const gSymbol1 = Symbol.for('id');
 const gSymbol2 = Symbol.for('id');
 console.log(gSymbol1 === gSymbol2);
+// 동일한 symbol을 사용하고 싶다면 symbol.for()를 이용해라.!
 console.log(`value: ${gSymbol1.description}, type: ${gSymbol2.description}`);
+// symbol은 그냥 출력하면 오류남.
+// 그래서 항상 .description 으로 string 으로 변환해서 출력해야 제대로 나옴.
 
 // 10.5 object, real-time object, data structure
 const ellie = {name: 'ellie', age: 20};
@@ -94,3 +101,6 @@ console.log(`value : ${text}, type: ${typeof text}`);
 text = '8' / '2';
 console.log(`value : ${text}, type: ${typeof text}`);
 console.log(text.charAt(0));
+
+// 이미 string에서 편집하는 중에 number로 type을 내가 바꾸었기 때문에 오류가 생김.
+// 그래서 typeScript가 나옴.
