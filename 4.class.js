@@ -27,7 +27,7 @@ class User {
         // 바로 값을 메모리에 바로 할당하는게 아닌 setter(value) 호출
     }
 
-    get age() { // 값을 리턴하고
+    get age() { // 값을 리턴, 설정된 값 저장
         return this._age;
          // call stack이 닫히기 때문에 변수를 _age 이렇게 달리 설정.
     } 
